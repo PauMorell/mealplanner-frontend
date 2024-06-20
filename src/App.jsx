@@ -1,11 +1,12 @@
 import { Button } from "./components/ui/button"
+import DayCard from "./DiaCard"
 import useFetch from "./hooks/usefetch"
 
 function App() {
   const {loading, error, data} = useFetch("http://localhost:1337/api/categorias")
 
-  if(loading) return <p>Loading...</p>
-  if(error) return <p>Error :( </p>
+/*   if(loading) return <p>Loading...</p>
+  if(error) return <p>Error :( </p> */
 
     /* const categories = data?.data || [] */
 
@@ -17,10 +18,19 @@ function App() {
     console.log(cat.attributes.Nom)
   }) */
 
+  const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"]
+
   return (
     <>
-      <Button>De lokos</Button>
+     
+      <DayCard dia={weekDays[2]}/>
       <div className="grid-container">
+        {
+          weekDays.map(day =>
+            <div className="grid-item">
+              <DayCard key={weekDays.lenght + 1} dia={day}></DayCard>
+            </div>)
+        }
       <div className="grid-item">Columna 1, fila 1</div>
       <div className="grid-item">Columna 2, fila 1</div>
       <div className="grid-item">Columna 1, fila 2</div>
