@@ -74,3 +74,15 @@
       @apply bg-background text-foreground;
     }
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 12px;
+  }
+
+  .grid-item {
+    background-color: #ff9d9d;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
