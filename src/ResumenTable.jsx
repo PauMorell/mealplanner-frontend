@@ -5,7 +5,7 @@ function ResumenTable({ dias }) {
         <table>
             <thead>
                 <tr>
-                    <th>Día</th>
+                    <th>Dia</th>
                     <th>Primer Plat</th>
                     <th>Segon Plat</th>
                 </tr>
@@ -13,9 +13,9 @@ function ResumenTable({ dias }) {
             <tbody>
                 {dias.map((dia, index) => (
                     <tr key={index}>
-                        <td>{dia.nom}</td>
-                        <td>{dia.plat1Display || "Selecciona un plat"}</td>
-                        <td>{dia.plat2Display || "Selecciona un plat"}</td>
+                        <td className="text-left">{dia.nom}</td>
+                        <td className="text-center">{dia.plat1Display || "-"}</td>
+                        <td className="text-center">{dia.plat2Display || "-"}</td>
                     </tr>
                 ))}
             </tbody>

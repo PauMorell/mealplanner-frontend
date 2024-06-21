@@ -77,51 +77,52 @@
 
 
 
-___________________________________________________________________+
+___________________________________________________________________
+.div-app{
+  min-width: 1000px;
+  margin: 0 auto;
+  background-color: blueviolet;
 
-.div-app {
-  max-width: 1024px;
-  
 }
 
-.flex-layout-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  box-sizing: border-box;
-  justify-content: center;
+.grid-layout-container {
+  width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  grid-gap: 20px;
 }
 
-.flex-layout-item {
-  width: 400px;
-  margin: 4px;
-  padding: 20px;
+.grid-layout-item {
+  padding: 10px;
   text-align: center;
   box-sizing: border-box;
 }
 
+
+
 @media screen and (min-width: 768px) {
-  .div-app {
-    max-width: 1024px;
-    margin: 0 10px;
+
+  .grid-layout-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 20px;
   }
 
-  .flex-layout-container {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    justify-content: center;
+  .grid-layout-item {
+    margin: 0;
   }
 
-  .flex-layout-item {
-    flex: 0 0 calc(12.5% - 1rem); 
-  }
+
+
+
 }
 
   .day-card-selectors{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 40px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
     justify-items: center;
     grid-row-gap: 20px;
   }
@@ -150,3 +151,19 @@ ___________________________________________________________________+
     grid-area: 3 / 3 / 4 / 5;
   }
 
+
+
+  .flex-layout-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .flex-layout-item {
+    width: 100%;
+    margin: 12px;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }

@@ -47,6 +47,7 @@ export default App */
 import React, { useState } from 'react';
 import DayCard from './DayCard';
 import ResumenTable from './ResumenTable';
+import AdminCard from './AdminCard';
 
 const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
@@ -67,9 +68,12 @@ function App() {
       <>
         <div className="div-app">
           <div className='flex-layout-container'>
-              {weekDays.map((dia, index) => (
-                  <DayCard key={index} dia={dia} updateDia={updateDia} />
-              ))}
+            <div className='grid-layout-container'>
+              <AdminCard></AdminCard>
+                {weekDays.map((dia, index) => (
+                    <DayCard className="grid-layout-item" key={index} dia={dia} updateDia={updateDia} />
+                ))}
+            </div>
           </div>
           <div className='flex-layout-container'>
               <ResumenTable className="flex-layout-item" dias={diesSeleccionats} />

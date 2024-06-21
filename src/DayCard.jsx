@@ -53,14 +53,14 @@ export default function DayCard({ dia, updateDia }) {
     }
 
     return (
-        <Card className="w-[360px] m-[58px] flex-layout-item">
-            <CardHeader>
+        <Card>
+            <CardHeader className="text-center py-4">
                 <CardTitle>{dia}</CardTitle>
             </CardHeader>
             <CardContent className="day-card-selectors">
                 <div className="day-card-category-selector1">
                     <Select onValueChange={handleCategoria1Change} value={categoria1}>
-                        <SelectTrigger className="w-[140px]">
+                        <SelectTrigger className="w-[140px] text-sm">
                             <SelectValue placeholder="Categoria" />
                         </SelectTrigger>
                         <SelectContent>
@@ -88,6 +88,7 @@ export default function DayCard({ dia, updateDia }) {
                             <SelectValue placeholder="Primer plat" />
                         </SelectTrigger>
                         <SelectContent>
+                        <SelectItem value="nu">Elimina la selecció</SelectItem>
                             {categoria1 && categorias
                                 .find(cat => cat.id === parseInt(categoria1))
                                 ?.attributes.plats.data.map(plat => (
@@ -105,6 +106,7 @@ export default function DayCard({ dia, updateDia }) {
                             <SelectValue placeholder="Segon plat" />
                         </SelectTrigger>
                         <SelectContent>
+                        <SelectItem value="u">Elimina la selecció</SelectItem>
                             {categoria2 && categorias
                                 .find(cat => cat.id === parseInt(categoria2))
                                 ?.attributes.plats.data.map(plat => (
@@ -115,13 +117,7 @@ export default function DayCard({ dia, updateDia }) {
                             }
                         </SelectContent>
                     </Select>
-                </div>
-                <div className="day-card-textinput1">
-                    <Input className="w-[140px]" placeholder="Extra" />
-                </div>
-                <div className="day-card-textinput2">
-                    <Input className="w-[140px]" placeholder="Extra" />
-                </div>
+                </div>  
             </CardContent>
             <CardFooter>
                 <h1>
