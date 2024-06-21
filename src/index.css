@@ -75,16 +75,29 @@
     }
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 12px;
+  .flex-layout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
   }
 
-  .grid-item {
-    background-color: #ff9d9d;
-    padding: 20px;
-    border: 1px solid #ddd;
+  .flex-layout-item {
+    flex: 1 1 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  @media screen and (min-width: 768px) {
+    .container {
+      flex-wrap: nowrap;
+    }
+  
+    .card {
+      flex: 1;
+    }
   }
 
   .day-card-selectors{
