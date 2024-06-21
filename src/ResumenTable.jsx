@@ -2,7 +2,7 @@
 
 function ResumenTable({ dias }) {
     return (
-        <table>
+        <table className="content-table">
             <thead>
                 <tr>
                     <th>Dia</th>
@@ -14,8 +14,8 @@ function ResumenTable({ dias }) {
                 {dias.map((dia, index) => (
                     <tr key={index}>
                         <td className="text-left">{dia.nom}</td>
-                        <td className="text-center">{dia.plat1Display || "-"}</td>
-                        <td className="text-center">{dia.plat2Display || "-"}</td>
+                        <td className="text-left">{dia.plat1Display || "-"}</td>
+                        <td className="text-left">{dia.plat2Display || "-"}</td>
                     </tr>
                 ))}
             </tbody>

@@ -40,9 +40,9 @@ export default function AdminCard() {
           <CardHeader>
             <CardTitle>Afegir un plat nou</CardTitle>
           </CardHeader>
-          <CardContent className="day-card-selectors">
-                <div className="day-card-category-selector1">
-                    <Select onValueChange={handleCategoria1Change} value={categoria1}>
+          <CardContent>
+                <div>
+                    <Select className="justify-center" onValueChange={handleCategoria1Change} value={categoria1}>
                         <SelectTrigger className="w-[140px] text-sm">
                             <SelectValue placeholder="Categoria" />
                         </SelectTrigger>
@@ -52,7 +52,8 @@ export default function AdminCard() {
                             ))}
                         </SelectContent>
                     </Select>
-                    </div>
+                    <Input className="my-2"></Input>
+                  </div>
           </CardContent>
         </Card>
     </div>

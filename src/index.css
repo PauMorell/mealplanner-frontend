@@ -167,3 +167,29 @@ ___________________________________________________________________
     text-align: center;
     box-sizing: border-box;
   }
+
+  .content-table{
+    border-collapse: collapse;
+    margin: 65px;
+    font-size: 0.9em;
+    min-width: 400px;
+  }
+
+  .content-table thead tr{
+    background-color: rgba(140, 138, 138, 0.174);
+    text-align: left;
+  }
+
+  .content-table th,
+  .content-table td {
+    padding: 10px 15px;
+  }
+
+  .content-table tbody tr {
+    border-bottom: 0.6px solid grey;
+  }
+
+  .content-table tbody tr:last-of-type{
+    border: none
+  }
+
