@@ -24,22 +24,33 @@ export default function DayCard(props) {
     const [categoria2, setCategoria2] = useState("");
     const [plat2, setPlat2] = useState("");
 
+    const [plat1Display, setPlat1Display] = useState("");
+    const [plat2Display, setPlat2Display] = useState("");
+
     const handleCategoria1Change = (value) => {
         setCategoria1(value);
         setPlat1('');
+        setPlat1Display('');
     }
 
     const handleCategoria2Change = (value) => {
         setCategoria2(value);
         setPlat2('');
+        setPlat2Display('');
     }
 
     const handlePlat1Change = (value) => {
         setPlat1(value);
+        const categoria = categorias.find(cat => cat.id === parseInt(categoria1));
+        const plat = categoria?.attributes.plats.data.find(p => p.id === parseInt(value));
+        setPlat1Display(plat ? plat.attributes.Nom : '');
     }
 
     const handlePlat2Change = (value) => {
         setPlat2(value);
+        const categoria = categorias.find(cat => cat.id === parseInt(categoria2));
+        const plat = categoria?.attributes.plats.data.find(p => p.id === parseInt(value));
+        setPlat2Display(plat ? plat.attributes.Nom : '');
     }
 
     return (
@@ -92,7 +103,7 @@ export default function DayCard(props) {
                 <div className="day-card-plat-selector2">
                     <Select onValueChange={handlePlat2Change} value={plat2}>
                         <SelectTrigger className="w-[140px]">
-                            <SelectValue placeholder="Primer plat" />
+                            <SelectValue placeholder="Segon plat" />
                         </SelectTrigger>
                         <SelectContent>
                             {categoria2 && categorias
@@ -114,7 +125,16 @@ export default function DayCard(props) {
                 </div>
             </CardContent>
             <CardFooter>
-                <h1>ss</h1>
+                <h1>
+                    {
+                        plat1Display && plat2Display
+                        ? `${plat1Display} i ${plat2Display}`
+                        : plat1Display
+                        ? `${plat1Display}`
+                        : "Selecciona els plats"
+                    }
+                </h1>
+               
             </CardFooter>
         </Card>
     );
