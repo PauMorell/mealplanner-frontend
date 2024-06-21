@@ -121,10 +121,9 @@ ___________________________________________________________________+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 2px;
+    grid-column-gap: 40px;
     justify-items: center;
     grid-row-gap: 20px;
-    grid-column-gap: 50px
   }
 
   .day-card-category-selector1{
