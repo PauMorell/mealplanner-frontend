@@ -5,14 +5,14 @@ import useFetch from "./hooks/usefetch"
 function App() {
   const {loading, error, data} = useFetch("http://localhost:1337/api/categorias")
 
-/*   if(loading) return <p>Loading...</p>
-  if(error) return <p>Error :( </p> */
+  if(loading) return <p>Loading...</p>
+  if(error) return <p>Error :( </p>
 
   const categories = data?.data || [] 
 
    
 
-  categories.map(cat => console.log(cat.id))
+  /* categories.map(cat => console.log(cat.id)) */
 
 
   const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
