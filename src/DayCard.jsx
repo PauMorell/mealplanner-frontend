@@ -3,28 +3,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 
-
-function PlatsDisplay({ plat1Display, plat2Display }) {
-    return (
-        <div>
-            <h1>{ 
-                        plat1Display && plat2Display
-                        ? `${plat1Display} i ${plat2Display.substring(0).toLowerCase()}`
-                        : plat1Display
-                        ? `${plat1Display}`
-                        : "Selecciona els plats"
-                    }</h1>
-            
-        </div>
-    );
-}
-
-
-export default function DayCard(props) {
-    const dia = props.dia;
-
+export default function DayCard({ dia, updateDia }) {
     const [categorias, setCategorias] = useState([]);
-    const [plats, setPlats] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -61,6 +41,7 @@ export default function DayCard(props) {
         const categoria = categorias.find(cat => cat.id === parseInt(categoria1));
         const plat = categoria?.attributes.plats.data.find(p => p.id === parseInt(value));
         setPlat1Display(plat ? plat.attributes.Nom : '');
+        updateDia(dia, plat ? plat.attributes.Nom : '', plat2Display);
     }
 
     const handlePlat2Change = (value) => {
@@ -68,6 +49,7 @@ export default function DayCard(props) {
         const categoria = categorias.find(cat => cat.id === parseInt(categoria2));
         const plat = categoria?.attributes.plats.data.find(p => p.id === parseInt(value));
         setPlat2Display(plat ? plat.attributes.Nom : '');
+        updateDia(dia, plat1Display, plat ? plat.attributes.Nom : '');
     }
 
     return (
@@ -106,7 +88,6 @@ export default function DayCard(props) {
                             <SelectValue placeholder="Primer plat" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="null" >Elimina la selecció</SelectItem>
                             {categoria1 && categorias
                                 .find(cat => cat.id === parseInt(categoria1))
                                 ?.attributes.plats.data.map(plat => (
@@ -124,7 +105,6 @@ export default function DayCard(props) {
                             <SelectValue placeholder="Segon plat" />
                         </SelectTrigger>
                         <SelectContent>
-                        <SelectItem value="n" >Elimina la selecció</SelectItem>
                             {categoria2 && categorias
                                 .find(cat => cat.id === parseInt(categoria2))
                                 ?.attributes.plats.data.map(plat => (
@@ -145,15 +125,14 @@ export default function DayCard(props) {
             </CardContent>
             <CardFooter>
                 <h1>
-                    {/* {
+                    {
                         plat1Display && plat2Display
                         ? `${plat1Display} i ${plat2Display.substring(0).toLowerCase()}`
                         : plat1Display
                         ? `${plat1Display}`
                         : "Selecciona els plats"
-                    } */}
+                    }
                 </h1>
-                <PlatsDisplay plat1Display={plat1Display} plat2Display={plat2Display} />
             </CardFooter>
         </Card>
     );
