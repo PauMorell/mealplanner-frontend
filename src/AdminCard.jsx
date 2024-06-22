@@ -4,6 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Button } from "./components/ui/button";
 
 export default function AdminCard() {
 
@@ -52,8 +53,14 @@ export default function AdminCard() {
                             ))}
                         </SelectContent>
                     </Select>
-                    <Input className="my-2"></Input>
+                    
                   </div>
+
+                  <div className="flex">
+                    <Input className="my-2"></Input>
+                    <Button className="mx-2 my-2 h-[48px] ml-8" variant="destructive" type="submit">Afegir</Button>
+                  </div>
+
           </CardContent>
         </Card>
     </div>

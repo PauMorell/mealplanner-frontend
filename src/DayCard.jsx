@@ -92,7 +92,7 @@ export default function DayCard({ dia, updateDia }) {
                                 .find(cat => cat.id === parseInt(categoria1))
                                 ?.attributes.plats.data.map(plat => (
                                     <SelectItem key={plat.id} value={plat.id}>
-                                        {plat.attributes.Nom}
+                                        {plat.attributes.Nom.trim()}
                                     </SelectItem>
                                 ))
                             }

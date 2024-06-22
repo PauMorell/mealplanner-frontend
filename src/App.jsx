@@ -1,57 +1,22 @@
-/* import DayCard from "./DayCard"
-import AdminCard from "./AdminCard"
-import useFetch from "./hooks/usefetch"
-
-function App() {
-  const {loading, error, data} = useFetch("http://localhost:1337/api/categorias")
-
-  if(loading) return <p>Loading...</p>
-  if(error) return <p>Error :( </p>
-
-  const categories = data?.data || [] 
-
-   
-
-  /* categories.map(cat => console.log(cat.id)) */
-
-
- /*  const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
-
-  return (
-    <>
-      
-      <div className="flex-layout-container">
-      <DayCard>aaa</DayCard>
-        {
-          weekDays.map((day, index) => (
-            <div>
-              <DayCard key={index} dia={day}></DayCard>
-            </div>))
-        }
-
-        <ul>
-          
-        </ul>
-
-    </div>
-  
-
-
-    </>
-  )
-}
-
-export default App */
- 
-// App.js o el archivo principal
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DayCard from './DayCard';
 import ResumenTable from './ResumenTable';
 import AdminCard from './AdminCard';
+import Login from './Login';
 
 const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [token, setToken] = useState('');
+
+  const handleLogin = (jwt) => {
+    setIsAuthenticated(true);
+    setToken(jwt);
+  };
+
+
+
     const [diesSeleccionats, setDiesSeleccionats] = useState(weekDays.map(dia => ({
         nom: dia,
         plat1Display: "",
@@ -66,6 +31,13 @@ function App() {
 
     return (
       <>
+      <div className='p-10'>
+      {isAuthenticated ? (
+        <div>Benvingut, has iniciat sessió correctament</div> 
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
+    </div>
         <div className="div-app">
           <div className='flex-layout-container'>
             <div className='grid-layout-container'>
