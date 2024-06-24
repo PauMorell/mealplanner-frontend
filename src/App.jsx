@@ -28,6 +28,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setToken(null);
+    setIsAuthenticated(false)
   };
 
 
@@ -64,11 +65,26 @@ function App() {
     </div> */}
                 
         <div className="div-app">
-          <Button onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
+          <div className='flex justify-between bg-black'>
+            <nav className='p-2 fixed top-0 left-0 right-0'>
+              {
+                isAuthenticated ? (
+                  <div>
+                    <h4>Benvingut, has iniciat sessió correctament</h4>
+                    <Button onLogout={handleLogout} onClick={handleLogout}>Finalitza la sessió</Button>
+                  </div>
+                ) : (
+                  <Button className="bg-white text-black blur-0 border" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
+                )
+              }
+              
+              </nav>
+          </div>
+          
           <div className='flex-layout-container'>
             <div className='grid-layout-container'>
             <div>
-            <AdminCard token={token} onLogout={handleLogout} />
+            <AdminCard token={token}  />
 
             <div>
               <Modal 
