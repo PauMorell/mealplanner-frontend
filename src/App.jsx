@@ -64,7 +64,7 @@ function App() {
     </div> */}
                 
         <div className="div-app">
-          <Button onClick={() => setVisibleLogin(true)}>Login button</Button>
+          <Button onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
           <div className='flex-layout-container'>
             <div className='grid-layout-container'>
             <div>

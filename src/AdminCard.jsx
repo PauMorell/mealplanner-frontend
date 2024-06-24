@@ -34,7 +34,6 @@ export default function AdminCard({ token, onLogout }) {
   };
 
   const handleAddPlat = async (e) => {
-    e.preventDefault();
     if (selectedCategoria && platNou) {
       try {
         const response = await fetch('http://localhost:1337/api/plats', {
@@ -101,15 +100,15 @@ export default function AdminCard({ token, onLogout }) {
                 />
                 <Button className="mx-2 my-2 h-[48px] ml-8" variant="destructive" type="submit">Afegir</Button>
               </div>
-              <aside className="text-xs" > <em>*Perquè aparegui el plat nou, heu de recarregar la pàgina</em></aside>
+              
             </form>
           ) : (
-            <div className="text-red-500">Per afegir un plat nou, primer heu de iniciar sessió.</div>
+            <div className="text-red-500">Per afegir un plat nou, primer heu d'iniciar sessió.</div>
           )}
         </CardContent>
         {token && (
           <CardFooter>
-            <Button variant="secondary" onClick={onLogout}>Logout</Button>
+            <Button variant="secondary" onClick={onLogout}>Tanca la sessió</Button>
           </CardFooter>
         )}
       </Card>
