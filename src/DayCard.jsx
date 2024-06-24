@@ -58,8 +58,8 @@ export default function DayCard({ dia, updateDia }) {
             </CardHeader>
             <CardContent className="day-card-selectors">
                 <div className="day-card-category-selector1">
-                    <Select onValueChange={handleCategoria1Change} value={categoria1}>
-                        <SelectTrigger className="w-[140px] text-sm">
+                    <Select className="selectore" onValueChange={handleCategoria1Change} value={categoria1}>
+                        <SelectTrigger className="w-full text-sm">
                             <SelectValue placeholder="Categoria" />
                         </SelectTrigger>
                         <SelectContent>
@@ -70,8 +70,8 @@ export default function DayCard({ dia, updateDia }) {
                     </Select>
                 </div>
                 <div className="day-card-category-selector2">
-                    <Select onValueChange={handleCategoria2Change} value={categoria2}>
-                        <SelectTrigger className="w-[140px]">
+                    <Select className="selectore" onValueChange={handleCategoria2Change} value={categoria2}>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Categoria" />
                         </SelectTrigger>
                         <SelectContent>
@@ -82,8 +82,8 @@ export default function DayCard({ dia, updateDia }) {
                     </Select>
                 </div>
                 <div className="day-card-plat-selector1">
-                    <Select onValueChange={handlePlat1Change} value={plat1}>
-                        <SelectTrigger className="w-[140px]">
+                    <Select className="selectore" onValueChange={handlePlat1Change} value={plat1}>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Primer plat" />
                         </SelectTrigger>
                         <SelectContent>
@@ -100,8 +100,8 @@ export default function DayCard({ dia, updateDia }) {
                     </Select>
                 </div>
                 <div className="day-card-plat-selector2">
-                    <Select onValueChange={handlePlat2Change} value={plat2}>
-                        <SelectTrigger className="w-[140px]">
+                    <Select className="selectore" onValueChange={handlePlat2Change} value={plat2}>
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Segon plat" />
                         </SelectTrigger>
                         <SelectContent>

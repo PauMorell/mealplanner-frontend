@@ -106,11 +106,7 @@ export default function AdminCard({ token}) {
             <div className="text-red-500">Per afegir un plat nou, primer heu d'iniciar sessió.</div>
           )}
         </CardContent>
-        {token && (
-          <CardFooter>
-            <Button variant="secondary" onClick={onLogout}>Tanca la sessió</Button>
-          </CardFooter>
-        )}
+
       </Card>
     </div>
   );

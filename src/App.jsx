@@ -5,8 +5,28 @@ import AdminCard from './AdminCard';
 import Login from './Login';
 import { Button } from './components/ui/button';
 import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none', 
+    padding: '0px', 
+    borderRadius: '10px', 
+    boxShadow: 'none', 
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.65)' 
+  }
+};
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,13 +42,16 @@ function App() {
 
   const handleLogin = (jwt) => {
     setToken(jwt);
+    setIsAuthenticated(true);
+    toast.success('Sessió iniciada correctament');
   };
 
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setToken(null);
-    setIsAuthenticated(false)
+    setIsAuthenticated(false);
+    toast.info('Has finalitzat sessió');
   };
 
 
@@ -53,28 +76,17 @@ function App() {
 
     return (
       <>
-{/*       <div className='p-10'>
-      {isAuthenticated ? (
-            <div className='flex justify-between'>
-          <h4>Benvingut, has iniciat sessió correctament</h4>
-          <Button onClick={handleLogout}>Finalitza la sessió</Button>
-          </div> 
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </div> */}
+
                 
         <div className="div-app">
-          <div className='flex justify-between bg-black'>
-            <nav className='p-2 fixed top-0 left-0 right-0'>
+          <div className='mb-12'>
+            <nav className='flex justify-between p-2'>
+              <h1>Menú setmanal Andreu Coll</h1>
               {
                 isAuthenticated ? (
-                  <div>
-                    <h4>Benvingut, has iniciat sessió correctament</h4>
-                    <Button onLogout={handleLogout} onClick={handleLogout}>Finalitza la sessió</Button>
-                  </div>
+                    <Button onLogout={handleLogout} onClick={handleLogout}>Finalitza sessió</Button>
                 ) : (
-                  <Button className="bg-white text-black blur-0 border" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
+                  <Button id="login-btn" className="bg-white text-black blur-0 border" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
                 )
               }
               
@@ -90,10 +102,14 @@ function App() {
               <Modal 
               isOpen={visibleLogin}
               onRequestClose={closeModal}
+              style={customStyles}
               
               >
-                <Login onLogin={handleLogin && closeModal} />
-                <Button onClick={closeModal}></Button>
+                <Login onLogin={(jwt) => {
+                  handleLogin(jwt);
+                  closeModal();
+                  id="modal-id"
+                }} />
                 </Modal>
             </div>
             
@@ -107,6 +123,7 @@ function App() {
           <div className='flex-layout-container'>
               <ResumenTable className="flex-layout-item" dias={diesSeleccionats} />
           </div>
+          <ToastContainer icon={false} position="bottom-right" theme='dark' autoClose={1500} />
         </div>
       </>
     );
