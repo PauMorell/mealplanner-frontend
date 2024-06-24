@@ -81,51 +81,50 @@ function App() {
                 
         <div className="div-app">
           <div className='mb-0'>
-            <nav className='flex justify-between p-2'>
-              <div className='flex items-center'>
-                <img src="src\assets\Logo.svg" alt="Logo" className="h-16 w-auto mr-2" />
+            <nav className='flex justify-between p-2 mx-2'>
+              <div className='lg:flex items-center'>
+                <img src="src\assets\Logo.svg" alt="Logo" className="h-16 w-auto mr-2 mx-4 md:px-0 h-20" />
                 <div className='items-center'>
-                  <h1 id='text-logo' className='text-center text-sm space-grotesk text-lg font-semibold'>Menú setmanal</h1>
-                  <h1 id='text-logo' className='text-xl space-grotesk text-lg font-semibold'>Andreu Coll</h1>
+                  <h1 className='text-center space-grotesk font-semibold text-xs md:text-xl lg:text-2xl'>Menú setmanal</h1>
+                  <h1 className='text-center space-grotesk font-semibold text-md md:text-2xl lg:text-3xl'>Andreu Coll</h1>
                 </div>
               </div>
-              {
-                isAuthenticated ? (
-                    <Button variant="outline" onLogout={handleLogout} onClick={handleLogout}>Finalitza sessió
-                    <img src="src\assets\logouticon.svg"  alt="Logout" className="h-4 w-auto ml-2" />
-                    </Button>
-                ) : (
-                  <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)}>Inicia sessió
-                  <img src="src\assets\usericon.svg"  alt="Logout" className="h-4 w-auto ml-2" />
-                  </Button>
-                )
-              }
-              
+                {
+                    isAuthenticated ? (
+                        <Button variant="outline" onLogout={handleLogout} onClick={handleLogout} className="button">
+                            <span className="button-text">Finalitza sessió</span>
+                            <img src="src/assets/logouticon.svg" alt="Logout" className="h-4 w-auto ml-2 button-icon" />
+                        </Button>
+                    ) : (
+                        <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)} className="button">
+                            <span className="button-text">Inicia sessió</span>
+                            <img src="src/assets/usericon.svg" alt="Login" className="h-4 w-auto ml-2 button-icon" />
+                        </Button>
+                    )
+                }
+
               </nav>
           </div>
           
           <div className='flex-layout-container'>
             <div className='grid-layout-container'>
-            <div>
-            <AdminCard token={token} />
-
-            <div>
-              <Modal 
-              isOpen={visibleLogin}
-              onRequestClose={closeModal}
-              style={customStyles}
-              
-              >
-                <Login onLogin={(jwt) => {
-                  handleLogin(jwt);
-                  closeModal();
-                  id="modal-id"
-                }} />
-                </Modal>
-            </div>
-            
-            {/* {!token && <Login onLogin={handleLogin} />} */}
-          </div>
+              <div>
+                <AdminCard token={token} />
+                   <div>
+                      <Modal 
+                      isOpen={visibleLogin}
+                      onRequestClose={closeModal}
+                      style={customStyles}
+                      
+                      >
+                      <Login onLogin={(jwt) => {
+                        handleLogin(jwt);
+                        closeModal();
+                        id="modal-id"
+                      }} />
+                      </Modal>
+                    </div>
+              </div>
                 {weekDays.map((dia, index) => (
                     <DayCard className="grid-layout-item" key={index} dia={dia} updateDia={updateDia} />
                 ))}

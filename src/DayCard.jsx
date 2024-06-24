@@ -51,8 +51,11 @@ export default function DayCard({ dia, updateDia }) {
         updateDia(dia, plat1Display, plat ? plat.attributes.Nom : '');
     }
 
+
+
+
     return (
-        <Card>
+        <Card className="shadow-md">
             <CardHeader className="text-center py-4">
                 <CardTitle>{dia}</CardTitle>
             </CardHeader>
@@ -118,13 +121,13 @@ export default function DayCard({ dia, updateDia }) {
                     </Select>
                 </div>  
             </CardContent>
-            <CardFooter>
-                <h1>
+            <CardFooter className="mb-0 mt-2 text-pretty">
+                <h1 className={`font-normal ${plat1Display || plat2Display ? 'font-medium' : 'font-light'}`}>
                     {
                         plat1Display && plat2Display
-                        ? `${plat1Display} i ${plat2Display.substring(0).toLowerCase()}`
+                        ? `-${plat1Display} i ${plat2Display.substring(0).toLowerCase()}`
                         : plat1Display
-                        ? `${plat1Display}`
+                        ? `-${plat1Display}`
                         : "Selecciona els plats"
                     }
                 </h1>

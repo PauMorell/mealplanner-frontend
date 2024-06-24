@@ -71,7 +71,7 @@ export default function AdminCard({ token }) {
 
   return (
     <div>
-      <Card>
+      <Card className="bg-neutral-100 shadow">
         <CardHeader>
           <CardTitle className="text-center">Afegir un plat nou</CardTitle>
         </CardHeader>
@@ -80,7 +80,7 @@ export default function AdminCard({ token }) {
             <form onSubmit={handleAddPlat}>
               <div>
                 <Select className="justify-center" onValueChange={handleCategoriaChange} value={selectedCategoria}>
-                  <SelectTrigger className="w-[140px] text-sm">
+                  <SelectTrigger className="w-full text-sm">
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent>
@@ -93,12 +93,12 @@ export default function AdminCard({ token }) {
 
               <div className="flex">
                 <Input 
-                  className="my-2" 
+                  className="my-2 w-full" 
                   placeholder="Plat nou"
                   value={platNou}
                   onChange={handlePlatChange}
                 />
-                <Button className="mx-2 my-2 h-[48px] ml-8" variant="destructive" type="submit">Afegir</Button>
+                <Button className="mx-0 my-2 h-[48px] ml-2" variant="destructive" type="submit">Afegir</Button>
               </div>
               
             </form>

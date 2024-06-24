@@ -86,7 +86,7 @@ ___________________________________________________________________
 }
 
 .grid-layout-container {
-  width: 1200px;
+  width: 1400px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -94,7 +94,6 @@ ___________________________________________________________________
 }
 
 .grid-layout-item {
-  padding: 10px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -134,6 +133,7 @@ nav{
     grid-column-gap: 20px;
     justify-items: space-between;
     grid-row-gap: 20px;
+    padding: 4px 8px;
   }
 
   .day-card-category-selector1{
@@ -177,32 +177,52 @@ nav{
     box-sizing: border-box;
   }
 
-  .content-table{
-    border-collapse: collapse;
-    margin: 35px;
-    font-size: 0.9em;
-    min-width: 430px;
-  }
+  .content-table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+    border: solid 0.2px rgba(169, 135, 133, 0.335);
+}
 
-  .content-table thead tr{
-    background-color: rgba(240, 125, 117, 0.755);
+.content-table thead tr {
+    background-color: rgba(240, 125, 117, 0.54);
     text-align: left;
-  }
+}
 
-  .content-table th,
-  .content-table td {
+.content-table th,
+.content-table td {
     padding: 10px 15px;
-  }
+}
 
-  .content-table tbody tr {
-    border-bottom: 0.6px solid rgb(233, 233, 233);
-  }
+.content-table td{
+  text-align: justify;
+  text-wrap: pretty;
+}
 
-  .content-table tbody tr:last-of-type{
-    border: none
-  }
+.content-table tbody tr {
+    border-bottom: 0.6px solid rgb(0, 0, 0);
+}
 
-  
+.content-table tbody tr:last-of-type {
+    border: none;
+}
+
+.content-table thead tr:first-child th:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.content-table thead tr:first-child th:last-child {
+  border-top-right-radius: 10px !important;
+}
+
+.content-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+
+.content-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px !important;
+}
 
 
   #login-btn:hover{
@@ -213,10 +233,38 @@ nav{
 
 
 
-
   
   .space-grotesk {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
   }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.button-text {
+    display: inline;
+}
+
+
+@media (max-width: 768px) {
+    .button-text {
+        display: none;
+    }
+    
+    .button {
+        justify-content: center; 
+    }
+    
+    .button-icon {
+        margin-left: 0; 
+    }
+
+
+}
+
