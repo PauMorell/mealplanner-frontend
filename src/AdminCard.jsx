@@ -4,7 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function AdminCard({ token}) {
+export default function AdminCard({ token }) {
   const [categorias, setCategorias] = useState([]);
   const [selectedCategoria, setSelectedCategoria] = useState("");
   const [platNou, setPlatNou] = useState("");
@@ -103,7 +103,11 @@ export default function AdminCard({ token}) {
               
             </form>
           ) : (
-            <div className="text-red-500">Per afegir un plat nou, primer heu d'iniciar sessió.</div>
+            <div className="text-red-500">Per afegir un plat nou, primer heu d'iniciar sessió.
+            
+            
+            
+            </div>
           )}
         </CardContent>
 

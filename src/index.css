@@ -103,6 +103,11 @@ ___________________________________________________________________
   width: 50px;
 }
 
+nav{
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+}
+
 
 @media screen and (min-width: 768px) {
 
@@ -180,7 +185,7 @@ ___________________________________________________________________
   }
 
   .content-table thead tr{
-    background-color: rgba(140, 138, 138, 0.174);
+    background-color: rgba(240, 125, 117, 0.755);
     text-align: left;
   }
 
@@ -190,19 +195,28 @@ ___________________________________________________________________
   }
 
   .content-table tbody tr {
-    border-bottom: 0.6px solid grey;
+    border-bottom: 0.6px solid rgb(233, 233, 233);
   }
 
   .content-table tbody tr:last-of-type{
     border: none
   }
 
-  #login-btn{
-    margin-left: 10px;
-  }
 
   #login-btn:hover{
-    color: white;
+    color: black;
+    background-color: rgba(240, 125, 117, 0.755);
     transition: 0.3s;
   }
 
+  #text-logo{
+    
+  }
+
+
+  
+  .space-grotesk {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }

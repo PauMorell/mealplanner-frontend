@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
 const customStyles = {
@@ -79,14 +80,20 @@ function App() {
 
                 
         <div className="div-app">
-          <div className='mb-12'>
+          <div className='mb-0'>
             <nav className='flex justify-between p-2'>
-              <h1>Menú setmanal Andreu Coll</h1>
+              <div className='flex items-center'>
+                <img src="src\assets\Logo.svg" alt="Logo" className="h-16 w-auto mr-2" />
+                <div className='items-center'>
+                  <h1 id='text-logo' className='text-center text-sm space-grotesk text-lg font-semibold'>Menú setmanal</h1>
+                  <h1 id='text-logo' className='text-xl space-grotesk text-lg font-semibold'>Andreu Coll</h1>
+                </div>
+              </div>
               {
                 isAuthenticated ? (
                     <Button onLogout={handleLogout} onClick={handleLogout}>Finalitza sessió</Button>
                 ) : (
-                  <Button id="login-btn" className="bg-white text-black blur-0 border" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
+                  <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
                 )
               }
               
@@ -96,7 +103,7 @@ function App() {
           <div className='flex-layout-container'>
             <div className='grid-layout-container'>
             <div>
-            <AdminCard token={token}  />
+            <AdminCard token={token} />
 
             <div>
               <Modal 
