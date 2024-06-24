@@ -73,7 +73,7 @@ export default function AdminCard({ token }) {
     <div>
       <Card>
         <CardHeader>
-          <CardTitle>Afegir un plat nou</CardTitle>
+          <CardTitle className="text-center">Afegir un plat nou</CardTitle>
         </CardHeader>
         <CardContent>
           {token ? (
@@ -103,7 +103,7 @@ export default function AdminCard({ token }) {
               
             </form>
           ) : (
-            <div className="text-red-500">Per afegir un plat nou, primer heu d'iniciar sessió.
+            <div className="text-grey-400 text-center">És necessari <u>iniciar sessió</u>.
             
             
             

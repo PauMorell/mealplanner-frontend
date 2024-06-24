@@ -86,7 +86,7 @@ ___________________________________________________________________
 }
 
 .grid-layout-container {
-  width: 1150px;
+  width: 1200px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -202,6 +202,8 @@ nav{
     border: none
   }
 
+  
+
 
   #login-btn:hover{
     color: black;
@@ -209,9 +211,7 @@ nav{
     transition: 0.3s;
   }
 
-  #text-logo{
-    
-  }
+
 
 
   

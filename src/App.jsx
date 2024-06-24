@@ -91,9 +91,13 @@ function App() {
               </div>
               {
                 isAuthenticated ? (
-                    <Button onLogout={handleLogout} onClick={handleLogout}>Finalitza sessió</Button>
+                    <Button variant="outline" onLogout={handleLogout} onClick={handleLogout}>Finalitza sessió
+                    <img src="src\assets\logouticon.svg"  alt="Logout" className="h-4 w-auto ml-2" />
+                    </Button>
                 ) : (
-                  <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)}>Inicia sessió</Button>
+                  <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)}>Inicia sessió
+                  <img src="src\assets\usericon.svg"  alt="Logout" className="h-4 w-auto ml-2" />
+                  </Button>
                 )
               }
               
