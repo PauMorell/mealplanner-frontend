@@ -10,7 +10,7 @@ export default function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/auth/local", {
+    const response = await fetch("https://mealplanner-backend-69q4.onrender.com/api/auth/local", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

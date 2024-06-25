@@ -7,7 +7,7 @@ export default function DayCard({ dia, updateDia }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const categoriasResponse = await fetch('http://localhost:1337/api/categorias?populate[plats][fields][0]=id&populate[plats][fields][1]=Nom&fields[0]=id&fields[1]=Nom');
+            const categoriasResponse = await fetch('https://mealplanner-backend-69q4.onrender.com/api/categorias?populate[plats][fields][0]=id&populate[plats][fields][1]=Nom&fields[0]=id&fields[1]=Nom');
             const categoriasData = await categoriasResponse.json();
             setCategorias(categoriasData.data);
         };

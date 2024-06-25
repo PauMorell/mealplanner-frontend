@@ -7,6 +7,9 @@ import { Button } from './components/ui/button';
 import Modal from 'react-modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Logo from './assets/Logo.svg';
+import logouticon from './assets/logouticon.svg';
+import usericon from './assets/usericon.svg';
 
 
 const weekDays = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
@@ -83,7 +86,7 @@ function App() {
           <div className='mb-0'>
             <nav className='flex justify-between p-2 mx-2'>
               <div className='lg:flex items-center'>
-                <img src="src\assets\Logo.svg" alt="Logo" className="h-16 w-auto mr-2 mx-4 md:px-0 h-20" />
+                <img src={Logo} alt="Logo" className="h-16 w-auto mr-2 mx-4 md:px-0 h-20" />
                 <div className='items-center'>
                   <h1 className='text-center space-grotesk font-semibold text-xs md:text-xl lg:text-2xl'>Menú setmanal</h1>
                   <h1 className='text-center space-grotesk font-semibold text-md md:text-2xl lg:text-3xl'>Andreu Coll</h1>
@@ -93,12 +96,12 @@ function App() {
                     isAuthenticated ? (
                         <Button variant="outline" onLogout={handleLogout} onClick={handleLogout} className="button">
                             <span className="button-text">Finalitza sessió</span>
-                            <img src="src/assets/logouticon.svg" alt="Logout" className="h-4 w-auto ml-2 button-icon" />
+                            <img src={logouticon} alt="Logout" className="h-4 w-auto ml-2 button-icon" />
                         </Button>
                     ) : (
                         <Button variant="destructive" id="login-btn" onClick={() => setVisibleLogin(true)} className="button">
                             <span className="button-text">Inicia sessió</span>
-                            <img src="src/assets/usericon.svg" alt="Login" className="h-4 w-auto ml-2 button-icon" />
+                            <img src={usericon} alt="Login" className="h-4 w-auto ml-2 button-icon" />
                         </Button>
                     )
                 }
